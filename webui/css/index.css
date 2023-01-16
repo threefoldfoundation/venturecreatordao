@@ -1,0 +1,51 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+@layer components {
+    h1, #h1  {
+      @apply text-4xl md:text-4xl lg:text-6xl leading-none font-normal my-4;
+      font-family: "BebasNeue", sans-serif
+    }
+    h1 strong {
+      @apply font-medium;
+    }
+    h2 {
+      @apply text-3xl md:text-4xl lg:text-5xl xl:text-8xl font-bold leading-none my-4;
+      font-family: "BebasNeue", sans-serif;
+      line-height: 0.8;
+      font-size:4.5rem
+    }
+    h2 strong {
+      @apply font-medium;
+    }
+    h3 {
+      @apply text-xl md:text-xl lg:text-2xl font-normal my-4;
+    }
+    h3 strong {
+      @apply font-medium;
+    }
+    h4 {
+      @apply text-xl lg:text-xl font-normal;
+    }
+    h5 {
+      @apply text-xl lg:text-xl font-normal;
+    }
+    h6 {
+      @apply text-lg not-italic font-normal my-1;
+    }
+    p {
+      @apply text-base lg:text-xl leading-tight tracking-normal font-normal my-4;
+      font-family: "CercoDEMO", sans-serif;
+    }
+    blockquote {
+      @apply border-l-4 border-gray-400 mx-2 my-2 p-2;
+    }
+    li {
+      @apply text-lg lg:text-xl font-normal my-2;
+    }
+    li li {
+      @apply text-sm lg:text-sm font-light;
+    }
+  }

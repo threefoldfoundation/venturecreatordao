@@ -3,8 +3,8 @@ module webui
 import vweb
 import freeflowuniverse.spiderlib.uikit.pages
 
-pub fn (mut ui WebUI) portfolio() vweb.Result {
-	page := pages.Portfolio{
+pub fn (mut ui WebUI) feed() vweb.Result {
+	page := pages.Feed{
 		// title: 'Threefold Ventures'
 		// description: 'Threefold Ventures'
 		// background: './image'
