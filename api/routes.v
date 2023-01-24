@@ -1,10 +1,9 @@
 module api
 
-import freeflowuniverse.spiderlib.api { FunctionCall, FunctionResponse }
+import freeflowuniverse.spiderlib.api { FunctionCall }
 import vweb
 
 pub fn (mut api API) get_ventures() vweb.Result {
-	println('trigger')
 	api.call_chan <- &FunctionCall{
 		function: 'get_ventures'
 	}

@@ -10,19 +10,21 @@ import vweb
 
 pub struct API {
 	vweb.Context
-	call_chan chan &FunctionCall [vweb_global]
+pub:
+	call_chan chan &FunctionCall     [vweb_global]
 	resp_chan chan &FunctionResponse [vweb_global]
 }
 
-
-
-pub fn run(call_chan chan FunctionCall, resp_chan chan FunctionResponse) {
-	mut api := API{
-		call_chan: call_chan
-		resp_chan: resp_chan
+pub fn new_api() &API {
+	mut api := &API{
+		call_chan: chan &FunctionCall{cap: 100}
+		resp_chan: chan &FunctionResponse{cap: 100}
 	}
-	println('ran:' + @FILE.all_before_last('/'))
 	api.mount_static_folder_at(@FILE.all_before_last('/') + '/dist', '/dist')
+	return api
+}
+
+pub fn run(api API) {
 	vweb.run(&api, 8080)
 }
 

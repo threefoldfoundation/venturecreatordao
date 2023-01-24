@@ -7,6 +7,6 @@ pub fn (mut api API) get_portfolio() vweb.Result {
 	api.call_chan <- &FunctionCall{
 		function: 'get_portfolio'
 	}
-	response := <- api.resp_chan
+	response := <-api.resp_chan
 	return api.text(response.payload)
 }

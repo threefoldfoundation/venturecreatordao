@@ -1,35 +1,36 @@
 module webui
 
-import freeflowuniverse.spiderlib.api { FunctionCall, FunctionResponse }
+import freeflowuniverse.spiderlib.api
 import freeflowuniverse.spiderlib.uikit.elements
 import freeflowuniverse.spiderlib.uikit.partials
 import freeflowuniverse.spiderlib.uikit.shell
 import freeflowuniverse.spiderlib.htmx
+import threefoldfoundation.venturecreatordao.app { User }
 import os
 import vweb
 
 pub struct WebUI {
 	vweb.Context
-	user_id   string
-	call_chan chan FunctionCall
-	resp_chan chan FunctionResponse
+	user_id string
+	user    User = app.mock_user()
+	dao app.VentureCreatorDAO = app.mock_venture_creator()
 }
 
-pub fn run(call_chan chan FunctionCall, resp_chan chan FunctionResponse) {
-	mut webui := WebUI{
-		call_chan: call_chan
-		resp_chan: resp_chan
-	}
+pub fn new_webui() &WebUI {
+	mut webui := WebUI{}
 	webui.mount_static_folder_at(os.resource_abs_path('webui/static'), '/static')
-	vweb.run(webui, 8080)
+	return &webui
+}
+
+pub fn run(webui WebUI) {
+	vweb.run(webui, 8000)
 }
 
 pub fn (mut ui WebUI) before_request() {
 	// redirects to requests to index
-	println(ui.req)
 	hx_request := ui.get_header('Hx-Request') == 'true'
 	referer := ui.get_header('Referer')
-	if !hx_request && ui.req.url != '/' && referer != 'http://localhost:8080/' {
+	if !hx_request && ui.req.url != '/' && referer != 'http://localhost:8000/' {
 		ui.redirect('')
 	}
 }
