@@ -3,43 +3,38 @@ module app
 import time
 import arrays
 
-// User defines any user of the venture creator dao application
-// Owns user info, a portfolio for investments, and gold tokens to invest with
+// User in venturecreator, holds info, portfolio, funds
 pub struct User {
-	id   string
+	id   string // TFConnect identifier
 	name string
+	email string
 pub mut:
-	investments []Investment
-	portfolio Portfolio
-	email     string
-	funds     f64
+	transactions Transaction
+	portfolio Portfolio // holds investments
+	funds     f64	// gold tokens
 }
 
-// Portfolio holds lists of assets in each asset category
+// Portfolio holds lists of investments for each asset
 [noinit]
 struct Portfolio {
-	pub mut:
-	ventures []VentureAsset
-	currencies  []Currency
-	validators  []Validator
-	value f64
+pub mut:
+	ventures []Investment
+	currencies  []Investment
+	validators  []Investment
+	value f64 // total value, calculated with getter
 }
 
-struct VentureAsset {
-	pub:
-	venture Venture
-	amount f64
-}
+type Asset = Venture | Currency | Validator | Liquidity
 
-// Investment is a stake held in a venture
+// Investment is an ownership of units in an asset
 [heap]
 struct Investment {
 	created_at time.Time
 	stake   f64
-	venture Venture
+	asset Asset
 }
 
-struct Currency {}
+enum Currency {}
 
 struct Validator {}
 

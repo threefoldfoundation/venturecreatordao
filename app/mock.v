@@ -14,6 +14,8 @@ pub fn mock_venture() Venture {
 pub fn mock_user() User {
 
 	venture := mock_venture()
+
+	// mock investment portfolio
 	portfolio := Portfolio{
 		ventures: [
 			VentureAsset{

@@ -68,6 +68,7 @@ pub fn (p Portfolio) get_value() f64 {
 	return val_investments
 }
 
+// get portfolio returns the users portfolio
 pub fn (u User) get_portfolio() Portfolio {
 	// val_assets := p.assets.map(it.currency.value * it.amount).sum()
 	
@@ -79,8 +80,10 @@ pub fn (u User) get_portfolio() Portfolio {
 				venture: i.venture
 			}
 		}
-		
-		p.ventures.amount += i.stake
+
+		// get list item matching 
+		// p.ventures.filter(it.venture.id == )
+		// p.ventures.amount += i.stake
 	}
 
 	return p
