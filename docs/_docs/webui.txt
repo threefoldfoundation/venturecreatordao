@@ -1,0 +1,19 @@
+[94mmodule[39m [32mwebui[39m
+
+[94mfn[39m [36mnew_webui[39m() &[32mWebUI[39m
+[94mfn[39m [36mrun[39m(webui [32mWebUI[39m)
+[94mstruct[39m [32mWebUI[39m {
+	[94mvweb[39m.[32mContext[39m
+	user_id [32mstring[39m
+	user    [32mUser[39m = [94mapp[39m.[36mmock_user[39m()
+	dao     [94mapp[39m.[32mVentureCreatorDAO[39m = [94mapp[39m.[36mmock_venture_creator[39m()
+}
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mventure_card[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mdashboard[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mfeed[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mhome[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mindex[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mportfolio[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mprofile[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mventure[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m ui [32mWebUI[39m) [36mbefore_request[39m()

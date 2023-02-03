@@ -1,0 +1,14 @@
+[94mmodule[39m [32mapi[39m
+
+[94mfn[39m [36mnew_api[39m() &[32mAPI[39m
+[94mfn[39m [36mrun[39m(api [32mAPI[39m)
+[94mstruct[39m [32mAPI[39m {
+	[94mvweb[39m.[32mContext[39m
+[94mpub[39m:
+	call_chan [32mchan[39m &[32mFunctionCall[39m     [vweb_global]
+	resp_chan [32mchan[39m &[32mFunctionResponse[39m [vweb_global]
+}
+[94mfn[39m ([94mmut[39m api [32mAPI[39m) [36mbefore_request[39m()
+[94mfn[39m ([94mmut[39m api [32mAPI[39m) [36mget_portfolio[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m api [32mAPI[39m) [36mget_ventures[39m() [94mvweb[39m.[32mResult[39m
+[94mfn[39m ([94mmut[39m api [32mAPI[39m) [36mindex[39m() [94mvweb[39m.[32mResult[39m

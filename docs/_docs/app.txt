@@ -1,0 +1,35 @@
+[94mmodule[39m [32mapp[39m
+
+[94mfn[39m [36mmock_venture[39m() [32mVenture[39m
+[94mfn[39m [36mmock_venture_creator[39m() [32mVentureCreatorDAO[39m
+[94mfn[39m [36mmock_user[39m() [32mUser[39m
+[94mfn[39m (i [32mInvestment[39m) [36mget_value[39m() [32mf64[39m
+[94mfn[39m (p [32mPortfolio[39m) [36mget_value[39m() [32mf64[39m
+[94mfn[39m (p [32mPortfolio[39m) [36mget_delta[39m() [32mf64[39m
+[94mfn[39m (venture [32mVenture[39m) [36mget_activities[39m() [][32mIActivity[39m
+[94mstruct[39m [32mUser[39m {
+	id    [32mstring[39m // TFConnect identifier
+	name  [32mstring[39m
+	email [32mstring[39m
+[94mpub[39m [94mmut[39m:
+	transactions [32mTransaction[39m
+	portfolio    [32mPortfolio[39m // holds investments
+	funds        [32mf64[39m       // gold tokens
+}
+[94mfn[39m (u [32mUser[39m) [36mget_portfolio[39m() [32mPortfolio[39m
+[94mfn[39m ([94mmut[39m user [32mUser[39m) [36minvest[39m([94mmut[39m args [32mInvestArgs[39m) !Investment
+[94mstruct[39m [32mMeeting[39m {
+	created_at [94mtime[39m.[32mTime[39m
+	time       [94mtime[39m.[32mTime[39m
+}
+[94mstruct[39m [32mVentureCreatorDAO[39m {
+	ventures [32mmap[39m[[32mstring[39m][32mVenture[39m
+	users    [32mmap[39m[[32mstring[39m][32mUser[39m
+}
+[94mfn[39m (dao [32mVentureCreatorDAO[39m) [36mcreate_venture[39m(venture [32mVenture[39m) [32mVenture[39m
+[94mfn[39m (dao [32mVentureCreatorDAO[39m) [36mget_ventures[39m() [][32mVenture[39m
+[94mfn[39m (dao [32mVentureCreatorDAO[39m) [36mget_venture[39m(id [32mstring[39m) ?[32mVenture[39m
+[94mfn[39m (dao [32mVentureCreatorDAO[39m) [36mupdate_venture[39m(venture [32mVenture[39m) [][32mVenture[39m
+[94mfn[39m (dao [32mVentureCreatorDAO[39m) [36mcreate_user[39m(name [32mstring[39m) [32mUser[39m
+[94mfn[39m (dao [32mVentureCreatorDAO[39m) [36mget_user[39m(id [32mstring[39m) ?[32mUser[39m
+[94mfn[39m (dao [32mVentureCreatorDAO[39m) [36mget_activities[39m() [][32mIActivity[39m
